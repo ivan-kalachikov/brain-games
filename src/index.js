@@ -7,8 +7,8 @@ const gameplay = (options) => {
   } = options;
   let count = 1;
   console.log('Welcome to the Brain Games!');
-  const name = requestName(); //ask players name here
-  console.log(gameplayMsg); //print the rules
+  const name = requestName(); // ask players name here
+  console.log(gameplayMsg); // print the rules
   while (count <= 3) {
     const question = genQuestion();
     const answer = readlineSync.question(`Question: ${question.string} `);
