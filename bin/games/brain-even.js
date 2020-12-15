@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import gameplay from '../src/index.js';
+import gameplay from '../../src/index.js';
 
 const options = {
   genQuestion: () => Math.ceil(Math.random() * 100),
