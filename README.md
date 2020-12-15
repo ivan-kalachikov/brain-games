@@ -5,4 +5,6 @@
 
 **Brain-Even** The record how to installation, run, win and lose is here: https://asciinema.org/a/fK8PPXxSyPLY0INZd000Cu9tr
 
-**Brain-Calc** The record how to run, win and lose is here: Calc https://asciinema.org/a/ex6plx460eN7ebdbqYuMGhHcA 
+**Brain-Calc** The record how to run, win and lose is here: https://asciinema.org/a/ex6plx460eN7ebdbqYuMGhHcA
+
+**Brain-GCD** The record how to run, win and lose is here: https://asciinema.org/a/mD9nswCrEUVf9f6tCpyNoyhX4
