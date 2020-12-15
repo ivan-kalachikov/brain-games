@@ -6,7 +6,7 @@ const options = {
     const start = Math.ceil(Math.random() * 100);
     const step = Math.ceil(Math.random() * 9);
     const arr = [];
-    const length = 10;
+    const length = 9;
     const hiddenIndex = Math.floor(Math.random() * length);
     let value;
     for (let i = 0; i < 10; i += 1) {
