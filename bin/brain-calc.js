@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import gameplay from '../../src/index.js';
+import gameplay from '../src/index.js';
 
 const options = {
   genQuestion: () => {
@@ -8,11 +8,11 @@ const options = {
     const operations = ['+', '-', '*']
     const operationIndex = Math.floor(Math.random() * operations.length);
     const operation = operations[operationIndex];
-    return `${a} ${operation} ${b}`;
+    return {string: `${a} ${operation} ${b}`};
   },
   gameplayMsg: 'What is the result of the expression?',
   isCorrectInput: (input) => typeof Number(input) === 'number',
-  getCorrectAnswer: (mathExpression) => eval(mathExpression),
-  isCorrectAnswer: (input, mathExpression, getCorrectAnswer) => Number(input) === getCorrectAnswer(mathExpression),
+  getCorrectAnswer: (question) => eval(question.string),
+  isCorrectAnswer: (input, question, getCorrectAnswer) => Number(input) === getCorrectAnswer(question),
 }
 gameplay(options);

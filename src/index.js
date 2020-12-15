@@ -11,7 +11,7 @@ const gameplay = (options) => {
   console.log(gameplayMsg); //print the rules
   while (count <= 3) {
     const question = genQuestion();
-    const answer = readlineSync.question(`Question: ${question} `);
+    const answer = readlineSync.question(`Question: ${question.string} `);
     console.log(`Your answer: ${answer}`);
     if (!isCorrectInput(answer) || !isCorrectAnswer(answer, question, getCorrectAnswer)) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${getCorrectAnswer(question)}'.\nLet's try again, ${name}!`);
