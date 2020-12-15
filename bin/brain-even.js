@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 import gameplay from '../src/index.js';
 
-const isEven = (num) => {
-  return num % 2 === 0;
-};
+const isEven = (num) => num % 2 === 0;
 const options = {
   genQuestion: () => {
     const num = Math.ceil(Math.random() * 100);
