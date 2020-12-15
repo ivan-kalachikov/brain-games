@@ -3,8 +3,9 @@ import gameplay from '../src/index.js';
 
 const options = {
   genQuestion: () => {
-    const a = Math.ceil(Math.random() * 100);
-    const b = Math.ceil(Math.random() * 100);
+    const maxNum = 100;
+    const a = Math.ceil(Math.random() * maxNum);
+    const b = Math.ceil(Math.random() * maxNum);
     const operations = ['+', '-', '*'];
     const operationIndex = Math.floor(Math.random() * operations.length);
     const operation = operations[operationIndex];

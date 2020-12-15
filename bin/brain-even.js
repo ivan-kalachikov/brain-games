@@ -4,7 +4,8 @@ import gameplay from '../src/index.js';
 const isEven = (num) => num % 2 === 0;
 const options = {
   genQuestion: () => {
-    const num = Math.ceil(Math.random() * 100);
+    const maxNum = 100;
+    const num = Math.ceil(Math.random() * maxNum);
     return { string: `${num}`, value: num };
   },
   gameplayMsg: 'Answer "yes" if the number is even, otherwise answer "no".',

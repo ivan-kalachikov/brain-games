@@ -5,11 +5,12 @@ const gameplay = (options) => {
   const {
     genQuestion, gameplayMsg, isCorrectInput, getCorrectAnswer, isCorrectAnswer,
   } = options;
-  let count = 1;
+  let count = 0;
+  const maxSteps = 3;
   console.log('Welcome to the Brain Games!');
   const name = requestName(); // ask players name here
   console.log(gameplayMsg); // print the rules
-  while (count <= 3) {
+  while (count <= maxSteps - 1) {
     const question = genQuestion();
     const answer = readlineSync.question(`Question: ${question.string} `);
     console.log(`Your answer: ${answer}`);
@@ -20,7 +21,7 @@ const gameplay = (options) => {
     console.log('Correct!');
     count += 1;
   }
-  if (count === 4) {
+  if (count === maxSteps) {
     console.log(`Congratulations, ${name}!`);
   }
 };

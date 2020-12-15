@@ -3,13 +3,14 @@ import gameplay from '../src/index.js';
 
 const options = {
   genQuestion: () => {
-    const start = Math.ceil(Math.random() * 100);
+    const maxNum = 100;
+    const start = Math.ceil(Math.random() * maxNum);
     const step = Math.ceil(Math.random() * 9);
     const arr = [];
     const length = 9;
     const hiddenIndex = Math.floor(Math.random() * length);
     let value;
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < length; i += 1) {
       if (hiddenIndex === i) {
         arr[i] = '..';
         value = start + step * (i + 1);

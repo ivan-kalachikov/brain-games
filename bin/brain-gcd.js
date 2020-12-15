@@ -14,8 +14,9 @@ const euclideanAlgorithm = (values) => {
 };
 const options = {
   genQuestion: () => {
-    const a = Math.ceil(Math.random() * 100);
-    const b = Math.ceil(Math.random() * 100);
+    const maxNum = 100;
+    const a = Math.ceil(Math.random() * maxNum);
+    const b = Math.ceil(Math.random() * maxNum);
     return { string: `${a} ${b}`, values: [a, b] };
   },
   gameplayMsg: 'Find the greatest common divisor of given numbers.',

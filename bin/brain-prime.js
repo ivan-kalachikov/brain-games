@@ -11,7 +11,8 @@ const isPrime = (num) => {
 };
 const options = {
   genQuestion: () => {
-    const num = Math.ceil(Math.random() * 100);
+    const maxNum = 100;
+    const num = Math.ceil(Math.random() * maxNum);
     return { string: `${num}`, value: num };
   },
   gameplayMsg: 'Answer "yes" if given number is prime. Otherwise answer "no".',
