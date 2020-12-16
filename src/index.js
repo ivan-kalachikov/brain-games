@@ -3,15 +3,15 @@ import requestName from './cli.js';
 
 const gameplay = (options) => {
   const {
-    genQuestion, gameplayMsg, isCorrectInput, getCorrectAnswer, isCorrectAnswer,
+    generateQuestion, gameplayMsg, isCorrectInput, getCorrectAnswer, isCorrectAnswer,
   } = options;
-  let count = 0;
+  let currentStep = 0;
   const maxSteps = 3;
   console.log('Welcome to the Brain Games!');
   const name = requestName(); // ask players name here
   console.log(gameplayMsg); // print the rules
-  while (count <= maxSteps - 1) {
-    const question = genQuestion();
+  while (currentStep <= maxSteps - 1) {
+    const question = generateQuestion();
     const answer = readlineSync.question(`Question: ${question.string} `);
     console.log(`Your answer: ${answer}`);
     if (!isCorrectInput(answer) || !isCorrectAnswer(answer, question, getCorrectAnswer)) {
@@ -19,9 +19,9 @@ const gameplay = (options) => {
       return;
     }
     console.log('Correct!');
-    count += 1;
+    currentStep += 1;
   }
-  if (count === maxSteps) {
+  if (currentStep === maxSteps) {
     console.log(`Congratulations, ${name}!`);
   }
 };
