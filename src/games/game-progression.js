@@ -1,13 +1,15 @@
+import {generateRandom} from '../utils.js';
 const options = {
   generateQuestion: () => {
-    const maxNum = 100;
-    const start = Math.ceil(Math.random() * maxNum);
-    const step = Math.ceil(Math.random() * 9);
+    const MAX_NUM = 100;
+    const MAX_STEP = 9;
+    const start = generateRandom(MAX_NUM);
+    const step = generateRandom(MAX_STEP);
     const arr = [];
-    const length = 9;
-    const hiddenIndex = Math.floor(Math.random() * length);
+    const PROGRESSION_LENGTH = 9;
+    const hiddenIndex = generateRandom(0, PROGRESSION_LENGTH - 1);
     let value;
-    for (let i = 0; i < length; i += 1) {
+    for (let i = 0; i < PROGRESSION_LENGTH; i += 1) {
       if (hiddenIndex === i) {
         arr[i] = '..';
         value = start + step * (i + 1);

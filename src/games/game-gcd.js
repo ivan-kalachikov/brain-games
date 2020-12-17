@@ -1,3 +1,4 @@
+import {generateRandom} from '../utils.js';
 const euclideanAlgorithm = (values) => {
   let [a, b] = values;
   while (a !== 0 && b !== 0) {
@@ -11,9 +12,9 @@ const euclideanAlgorithm = (values) => {
 };
 const options = {
   generateQuestion: () => {
-    const maxNum = 100;
-    const a = Math.ceil(Math.random() * maxNum);
-    const b = Math.ceil(Math.random() * maxNum);
+    const MAX_NUM = 100;
+    const a = generateRandom(MAX_NUM);
+    const b = generateRandom(MAX_NUM);
     return { string: `${a} ${b}`, values: [a, b] };
   },
   gameplayMsg: 'Find the greatest common divisor of given numbers.',

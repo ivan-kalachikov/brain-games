@@ -1,8 +1,9 @@
+import {generateRandom} from '../utils.js';
 const options = {
   generateQuestion: () => {
-    const maxNum = 100;
-    const a = Math.ceil(Math.random() * maxNum);
-    const b = Math.ceil(Math.random() * maxNum);
+    const MAX_NUM = 100;
+    const a = generateRandom(MAX_NUM);
+    const b = generateRandom(MAX_NUM);
     const operations = ['+', '-', '*'];
     const operationIndex = Math.floor(Math.random() * operations.length);
     const operation = operations[operationIndex];
