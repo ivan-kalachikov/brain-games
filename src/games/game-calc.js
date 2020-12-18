@@ -1,31 +1,44 @@
-import {generateRandom} from '../utils.js';
-const options = {
-  generateQuestion: () => {
-    const MAX_NUM = 100;
-    const a = generateRandom(MAX_NUM);
-    const b = generateRandom(MAX_NUM);
-    const operations = ['+', '-', '*'];
-    const operationIndex = Math.floor(Math.random() * operations.length);
-    const operation = operations[operationIndex];
-    return { string: `${a} ${operation} ${b}`, values: [a, b, operation] };
-  },
-  gameplayMsg: 'What is the result of the expression?',
-  isCorrectInput: (input) => typeof Number(input) === 'number',
-  getCorrectAnswer: (question) => {
-    const [a, b, operation] = question.values;
-    switch (operation) {
-      case '+':
-        return a + b;
-      case '-':
-        return a - b;
-      case '*':
-        return a * b;
-      default:
-        return false;
-    }
-  },
-  isCorrectAnswer: (input, question, getCorrectAnswer) => (
-    Number(input) === getCorrectAnswer(question)
-  ),
+import generateRandom from '../utils.js';
+
+const calculate = (a, b, operation) => {
+  switch (operation) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      throw new Error('Something went wrong, check operation argument');
+  }
 };
-export default options;
+
+const getRandomOperation = () => {
+  const operations = ['+', '-', '*'];
+  const operationIndex = Math.floor(Math.random() * operations.length);
+  return operations[operationIndex];
+};
+
+const generateQuestion = () => {
+  const MAX_NUM = 100;
+  const a = generateRandom(MAX_NUM);
+  const b = generateRandom(MAX_NUM);
+  const operation = getRandomOperation();
+  return { string: `${a} ${operation} ${b}`, values: [a, b, operation] };
+};
+
+const gameplayMsg = 'What is the result of the expression?';
+const isCorrectInput = (input) => typeof Number(input) === 'number';
+const getCorrectAnswer = (question) => {
+  const [a, b, operation] = question.values;
+  return calculate(a, b, operation);
+};
+const isCorrectAnswer = (input, question) => Number(input) === getCorrectAnswer(question);
+
+export default () => ({
+  generateQuestion,
+  gameplayMsg,
+  isCorrectInput,
+  isCorrectAnswer,
+  getCorrectAnswer,
+});

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import gameplay from '../src/index.js';
-import options from '../src/games/game-prime.js';
+import runGame from '../src/index.js';
+import gamePrime from '../src/games/game-prime.js';
 
-gameplay(options);
+runGame(gamePrime);

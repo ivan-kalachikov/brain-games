@@ -1,29 +1,33 @@
-import {generateRandom} from '../utils.js';
-const options = {
-  generateQuestion: () => {
-    const MAX_NUM = 100;
-    const MAX_STEP = 9;
-    const start = generateRandom(MAX_NUM);
-    const step = generateRandom(MAX_STEP);
-    const arr = [];
-    const PROGRESSION_LENGTH = 9;
-    const hiddenIndex = generateRandom(0, PROGRESSION_LENGTH - 1);
-    let value;
-    for (let i = 0; i < PROGRESSION_LENGTH; i += 1) {
-      if (hiddenIndex === i) {
-        arr[i] = '..';
-        value = start + step * (i + 1);
-      } else {
-        arr[i] = start + step * (i + 1);
-      }
-    }
-    return { string: `${arr.join(' ')}`, value };
-  },
-  gameplayMsg: 'What number is missing in the progression?',
-  isCorrectInput: (input) => typeof Number(input) === 'number',
-  getCorrectAnswer: (question) => question.value,
-  isCorrectAnswer: (input, question, getCorrectAnswer) => (
-    Number(input) === getCorrectAnswer(question)
-  ),
+import generateRandom from '../utils.js';
+
+const generateSequenceArray = (start, step, length) => (
+  new Array(length).fill(0).map((item, i) => start + step * i)
+);
+
+const generateQuestion = () => {
+  const MAX_START_NUM = 100;
+  const MAX_STEP = 9;
+  const PROGRESSION_LENGTH = 9;
+
+  const start = generateRandom(MAX_START_NUM);
+  const step = generateRandom(MAX_STEP);
+  const hiddenIndex = generateRandom(0, PROGRESSION_LENGTH - 1);
+
+  const sequenceArr = generateSequenceArray(start, step, PROGRESSION_LENGTH);
+  const hiddenValue = sequenceArr[hiddenIndex];
+  sequenceArr[hiddenIndex] = '..';
+  return { string: `${sequenceArr.join(' ')}`, value: hiddenValue };
 };
-export default options;
+
+const gameplayMsg = 'What number is missing in the progression?';
+const isCorrectInput = (input) => typeof Number(input) === 'number';
+const getCorrectAnswer = (question) => question.value;
+const isCorrectAnswer = (input, question) => Number(input) === getCorrectAnswer(question);
+
+export default () => ({
+  generateQuestion,
+  gameplayMsg,
+  isCorrectInput,
+  isCorrectAnswer,
+  getCorrectAnswer,
+});

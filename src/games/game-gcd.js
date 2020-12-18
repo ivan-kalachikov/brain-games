@@ -1,4 +1,5 @@
-import {generateRandom} from '../utils.js';
+import generateRandom from '../utils.js';
+
 const euclideanAlgorithm = (values) => {
   let [a, b] = values;
   while (a !== 0 && b !== 0) {
@@ -10,18 +11,23 @@ const euclideanAlgorithm = (values) => {
   }
   return a + b;
 };
-const options = {
-  generateQuestion: () => {
-    const MAX_NUM = 100;
-    const a = generateRandom(MAX_NUM);
-    const b = generateRandom(MAX_NUM);
-    return { string: `${a} ${b}`, values: [a, b] };
-  },
-  gameplayMsg: 'Find the greatest common divisor of given numbers.',
-  isCorrectInput: (input) => typeof Number(input) === 'number',
-  getCorrectAnswer: (question) => euclideanAlgorithm(question.values),
-  isCorrectAnswer: (input, question, getCorrectAnswer) => (
-    Number(input) === getCorrectAnswer(question)
-  ),
+
+const generateQuestion = () => {
+  const MAX_NUM = 100;
+  const a = generateRandom(MAX_NUM);
+  const b = generateRandom(MAX_NUM);
+  return { string: `${a} ${b}`, values: [a, b] };
 };
-export default options;
+
+const gameplayMsg = 'Find the greatest common divisor of given numbers.';
+const isCorrectInput = (input) => typeof Number(input) === 'number';
+const getCorrectAnswer = (question) => euclideanAlgorithm(question.values);
+const isCorrectAnswer = (input, question) => Number(input) === getCorrectAnswer(question);
+
+export default () => ({
+  generateQuestion,
+  gameplayMsg,
+  isCorrectInput,
+  isCorrectAnswer,
+  getCorrectAnswer,
+});
