@@ -1,4 +1,5 @@
 import requestName, { requestAnswer } from './cli.js';
+import { greetUser } from './utils.js';
 
 const runGame = (gameLogic) => {
   const {
@@ -10,7 +11,7 @@ const runGame = (gameLogic) => {
 
   console.log('Welcome to the Brain Games!');
   const name = requestName(); // ask players name here
-  console.log(`Hello, ${name}!`);
+  greetUser(name);
   console.log(gameplayMsg); // print the rules
 
   while (currentStep < MAX_STEPS) {
