@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 const requestAnswer = (questionString) => {
   const answer = readlineSync.question(`Question: ${questionString} `);
-  return !answer.isNaN ? Number(answer) : answer;
+  return !Number.isNaN(answer) ? Number(answer) : answer;
   // check an answer is a number, convert to Number it in this case, return String in another case;
 };
 
