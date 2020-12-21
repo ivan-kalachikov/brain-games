@@ -16,7 +16,7 @@ const runGame = (gameLogic) => {
   while (currentStep < MAX_STEPS) {
     const { questionString, correctAnswer } = generateQuestion();
     const userInput = readlineSync.question(`Question: ${questionString} `);
-    const answer = userInput.match(/^\d+$/) ? Number(userInput) : userInput;
+    const answer = userInput.match(/^\-?\d+$/) ? Number(userInput) : userInput;
     // check an user input is a number, convert it to Number in this case,
     // return String in another case;
     console.log(`Your answer: ${answer}`);
