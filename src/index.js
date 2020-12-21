@@ -3,7 +3,7 @@ import { greetUser } from './utils.js';
 
 const runGame = (gameLogic) => {
   const {
-    generateQuestion, gameplayMsg, isCorrectInput, getCorrectAnswer, isCorrectAnswer,
+    generateQuestion, gameplayMsg, isCorrectInput,
   } = gameLogic();
 
   let currentStep = 0;

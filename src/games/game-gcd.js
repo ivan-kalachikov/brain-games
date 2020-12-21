@@ -12,6 +12,10 @@ const euclideanAlgorithm = (values) => {
   return a + b;
 };
 
+const gameplayMsg = 'Find the greatest common divisor of given numbers.';
+const isCorrectInput = (input) => typeof Number(input) === 'number';
+const getCorrectAnswer = (values) => euclideanAlgorithm(values);
+
 const generateQuestion = () => {
   const MAX_NUM = 100;
   const a = generateRandom(MAX_NUM);
@@ -20,13 +24,8 @@ const generateQuestion = () => {
   return { questionString: `${a} ${b}`, correctAnswer };
 };
 
-const gameplayMsg = 'Find the greatest common divisor of given numbers.';
-const isCorrectInput = (input) => typeof Number(input) === 'number';
-const getCorrectAnswer = (values) => euclideanAlgorithm(values);
-
 export default () => ({
   generateQuestion,
   gameplayMsg,
   isCorrectInput,
-  getCorrectAnswer,
 });
