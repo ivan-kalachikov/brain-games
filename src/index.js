@@ -1,11 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const requestAnswer = (questionString) => {
-  const answer = readlineSync.question(`Question: ${questionString} `);
-  return !Number.isNaN(answer) ? Number(answer) : answer;
-  // check an answer is a number, convert to Number it in this case, return String in another case;
-};
-
 const runGame = (gameLogic) => {
   const {
     generateQuestion, gameplayMsg, isCorrectInput,
@@ -21,7 +15,10 @@ const runGame = (gameLogic) => {
 
   while (currentStep < MAX_STEPS) {
     const { questionString, correctAnswer } = generateQuestion();
-    const answer = requestAnswer(questionString);
+    const userInput = readlineSync.question(`Question: ${questionString} `);
+    const answer = userInput.match(/^\d+$/) ? Number(userInput) : userInput;
+    // check an user input is a number, convert it to Number in this case,
+    // return String in another case;
     console.log(`Your answer: ${answer}`);
 
     if (!isCorrectInput(answer) || answer !== correctAnswer) {

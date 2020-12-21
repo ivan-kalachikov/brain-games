@@ -13,7 +13,7 @@ const euclideanAlgorithm = (values) => {
 };
 
 const gameplayMsg = 'Find the greatest common divisor of given numbers.';
-const isCorrectInput = (input) => typeof Number(input) === 'number';
+const isCorrectInput = (input) => typeof input === 'number';
 const getCorrectAnswer = (values) => euclideanAlgorithm(values);
 
 const generateQuestion = () => {

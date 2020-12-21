@@ -14,7 +14,7 @@ const calculate = (a, b, operation) => {
 };
 
 const gameplayMsg = 'What is the result of the expression?';
-const isCorrectInput = (input) => typeof Number(input) === 'number';
+const isCorrectInput = (input) => typeof input === 'number';
 const getCorrectAnswer = (values) => {
   const [a, b, operation] = values;
   return calculate(a, b, operation);

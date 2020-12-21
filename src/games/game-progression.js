@@ -5,7 +5,7 @@ const generateSequenceArray = (start, step, length) => (
 );
 
 const gameplayMsg = 'What number is missing in the progression?';
-const isCorrectInput = (input) => typeof Number(input) === 'number';
+const isCorrectInput = (input) => typeof input === 'number';
 const getCorrectAnswer = (hiddenValue) => hiddenValue;
 
 const generateQuestion = () => {
