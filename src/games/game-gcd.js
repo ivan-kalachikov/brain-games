@@ -16,18 +16,17 @@ const generateQuestion = () => {
   const MAX_NUM = 100;
   const a = generateRandom(MAX_NUM);
   const b = generateRandom(MAX_NUM);
-  return { string: `${a} ${b}`, values: [a, b] };
+  const correctAnswer = getCorrectAnswer([a, b]);
+  return { questionString: `${a} ${b}`, correctAnswer };
 };
 
 const gameplayMsg = 'Find the greatest common divisor of given numbers.';
 const isCorrectInput = (input) => typeof Number(input) === 'number';
-const getCorrectAnswer = (question) => euclideanAlgorithm(question.values);
-const isCorrectAnswer = (input, question) => Number(input) === getCorrectAnswer(question);
+const getCorrectAnswer = (values) => euclideanAlgorithm(values);
 
 export default () => ({
   generateQuestion,
   gameplayMsg,
   isCorrectInput,
-  isCorrectAnswer,
   getCorrectAnswer,
 });

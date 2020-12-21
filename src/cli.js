@@ -5,7 +5,10 @@ const requestName = () => {
   return name;
 };
 
-const requestAnswer = (question) => readlineSync.question(`Question: ${question} `);
+const requestAnswer = (question) => {
+  const answer = readlineSync.question(`Question: ${question} `);
+  return !isNaN(answer) ? Number(answer) : answer; // check is an answer a Number, and convert to Number it this case
+};
 
 export { requestAnswer };
 export default requestName;

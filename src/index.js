@@ -15,12 +15,12 @@ const runGame = (gameLogic) => {
   console.log(gameplayMsg); // print the rules
 
   while (currentStep < MAX_STEPS) {
-    const question = generateQuestion();
-    const answer = requestAnswer(question.string);
+    const { questionString, correctAnswer } = generateQuestion();
+    const answer = requestAnswer(questionString);
     console.log(`Your answer: ${answer}`);
 
-    if (!isCorrectInput(answer) || !isCorrectAnswer(answer, question)) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${getCorrectAnswer(question)}'.\nLet's try again, ${name}!`);
+    if (!isCorrectInput(answer) || answer !== correctAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       return;
     }
 

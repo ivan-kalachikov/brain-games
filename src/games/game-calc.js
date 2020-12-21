@@ -13,32 +13,27 @@ const calculate = (a, b, operation) => {
   }
 };
 
-const getRandomOperation = () => {
-  const operations = ['+', '-', '*'];
-  const operationIndex = Math.floor(Math.random() * operations.length);
-  return operations[operationIndex];
-};
-
 const generateQuestion = () => {
   const MAX_NUM = 100;
   const a = generateRandom(MAX_NUM);
   const b = generateRandom(MAX_NUM);
-  const operation = getRandomOperation();
-  return { string: `${a} ${operation} ${b}`, values: [a, b, operation] };
+  const operations = ['+', '-', '*'];
+  const operationIndex = generateRandom(operations.length - 1, 0);
+  const operation = operations[operationIndex];
+  const correctAnswer = getCorrectAnswer([a, b, operation]);
+  return { questionString: `${a} ${operation} ${b}`, correctAnswer };
 };
 
 const gameplayMsg = 'What is the result of the expression?';
 const isCorrectInput = (input) => typeof Number(input) === 'number';
-const getCorrectAnswer = (question) => {
-  const [a, b, operation] = question.values;
+const getCorrectAnswer = (values) => {
+  const [a, b, operation] = values;
   return calculate(a, b, operation);
 };
-const isCorrectAnswer = (input, question) => Number(input) === getCorrectAnswer(question);
 
 export default () => ({
   generateQuestion,
   gameplayMsg,
   isCorrectInput,
-  isCorrectAnswer,
   getCorrectAnswer,
 });

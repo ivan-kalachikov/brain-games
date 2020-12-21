@@ -15,18 +15,17 @@ const isPrime = (num) => {
 const generateQuestion = () => {
   const MAX_NUM = 100;
   const num = generateRandom(MAX_NUM);
-  return { string: `${num}`, value: num };
+  const correctAnswer = getCorrectAnswer(num);
+  return { questionString: `${num}`, correctAnswer };
 };
 
 const gameplayMsg = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isCorrectInput = (input) => input === 'yes' || input === 'no';
-const getCorrectAnswer = (question) => (isPrime(question.value) ? 'yes' : 'no');
-const isCorrectAnswer = (input, question) => input === getCorrectAnswer(question);
+const getCorrectAnswer = (num) => (isPrime(num) ? 'yes' : 'no');
 
 export default () => ({
   generateQuestion,
   gameplayMsg,
   isCorrectInput,
-  isCorrectAnswer,
   getCorrectAnswer,
 });
