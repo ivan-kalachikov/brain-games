@@ -2,7 +2,9 @@ import generateRandom from '../utils.js';
 
 const MAX_NUM = 100;
 
-const getGCD = (a, b) => {
+const getGCD = (m, n) => {
+  let a = m;
+  let b = n;
   while (a !== 0 && b !== 0) {
     if (a > b) {
       a %= b;
