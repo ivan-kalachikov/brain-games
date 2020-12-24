@@ -1,33 +1,29 @@
 import readlineSync from 'readline-sync';
+import getNameAndGreet from './cli.js';
+
+const MAX_STEPS = 3;
 
 const runGame = (gameLogic) => {
   const {
-    generateQuestion, gameplayMsg, isCorrectInput,
+    generateGameRound, gameplayMsg,
   } = gameLogic();
 
-  let currentStep = 0;
-  const MAX_STEPS = 3;
-
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? '); // ask players name here
-  console.log(`Hello, ${name}!`);
+  const name = getNameAndGreet();
   console.log(gameplayMsg); // print the game rules
 
-  while (currentStep < MAX_STEPS) {
-    const { questionString, correctAnswer } = generateQuestion();
-    const userInput = readlineSync.question(`Question: ${questionString} `);
-    const answer = userInput.match(/^-?\d+$/) ? Number(userInput) : userInput;
+  for (let i = 0; i < MAX_STEPS; i += 1) {
+    const { questionString, correctAnswer } = generateGameRound();
+    const answer = readlineSync.question(`Question: ${questionString} `);
     // check an user input is a number, convert it to Number in this case,
     // return String in another case;
     console.log(`Your answer: ${answer}`);
 
-    if (!isCorrectInput(answer) || answer !== correctAnswer) {
+    if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       return;
     }
 
     console.log('Correct!');
-    currentStep += 1;
   }
 
   console.log(`Congratulations, ${name}!`);

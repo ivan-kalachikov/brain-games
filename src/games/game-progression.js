@@ -1,32 +1,29 @@
 import generateRandom from '../utils.js';
 
-const generateSequenceArray = (start, step, length) => (
+const MAX_START_NUM = 100;
+const MAX_STEP = 9;
+const MIN_STEP = 2;
+const PROGRESSION_LENGTH = 9;
+
+const generateProgression = (start, step, length) => (
   new Array(length).fill(0).map((item, i) => start + step * i)
 );
 
 const gameplayMsg = 'What number is missing in the progression?';
-const isCorrectInput = (input) => typeof input === 'number';
-const getCorrectAnswer = (hiddenValue) => hiddenValue;
 
-const generateQuestion = () => {
-  const MAX_START_NUM = 100;
-  const MAX_STEP = 9;
-  const MIN_STEP = 2;
-  const PROGRESSION_LENGTH = 9;
-
+const generateGameRound = () => {
   const start = generateRandom(MAX_START_NUM);
   const step = generateRandom(MAX_STEP, MIN_STEP);
   const hiddenIndex = generateRandom(0, PROGRESSION_LENGTH - 1);
 
-  const sequenceArr = generateSequenceArray(start, step, PROGRESSION_LENGTH);
-  const hiddenValue = sequenceArr[hiddenIndex];
-  sequenceArr[hiddenIndex] = '..';
-  const correctAnswer = getCorrectAnswer(hiddenValue);
-  return { questionString: `${sequenceArr.join(' ')}`, correctAnswer };
+  const progression = generateProgression(start, step, PROGRESSION_LENGTH);
+  const hiddenValue = progression[hiddenIndex];
+  progression[hiddenIndex] = '..';
+  const correctAnswer = String(hiddenValue);
+  return { questionString: progression.join(' '), correctAnswer };
 };
 
 export default () => ({
-  generateQuestion,
+  generateGameRound,
   gameplayMsg,
-  isCorrectInput,
 });

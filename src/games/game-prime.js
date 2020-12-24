@@ -1,5 +1,7 @@
 import generateRandom from '../utils.js';
 
+const MAX_NUM = 100;
+
 const isPrime = (num) => {
   if (num < 2) {
     return false;
@@ -13,18 +15,15 @@ const isPrime = (num) => {
 };
 
 const gameplayMsg = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const isCorrectInput = (input) => input === 'yes' || input === 'no';
 const getCorrectAnswer = (num) => (isPrime(num) ? 'yes' : 'no');
 
-const generateQuestion = () => {
-  const MAX_NUM = 100;
+const generateGameRound = () => {
   const num = generateRandom(MAX_NUM);
   const correctAnswer = getCorrectAnswer(num);
-  return { questionString: `${num}`, correctAnswer };
+  return { questionString: String(num), correctAnswer };
 };
 
 export default () => ({
-  generateQuestion,
+  generateGameRound,
   gameplayMsg,
-  isCorrectInput,
 });

@@ -1,5 +1,8 @@
 import generateRandom from '../utils.js';
 
+const MAX_NUM = 100;
+const operations = ['+', '-', '*'];
+
 const calculate = (a, b, operation) => {
   switch (operation) {
     case '+':
@@ -14,25 +17,17 @@ const calculate = (a, b, operation) => {
 };
 
 const gameplayMsg = 'What is the result of the expression?';
-const isCorrectInput = (input) => typeof input === 'number';
-const getCorrectAnswer = (values) => {
-  const [a, b, operation] = values;
-  return calculate(a, b, operation);
-};
 
-const generateQuestion = () => {
-  const MAX_NUM = 100;
+const generateGameRound = () => {
   const a = generateRandom(MAX_NUM);
   const b = generateRandom(MAX_NUM);
-  const operations = ['+', '-', '*'];
   const operationIndex = generateRandom(operations.length - 1, 0);
   const operation = operations[operationIndex];
-  const correctAnswer = getCorrectAnswer([a, b, operation]);
+  const correctAnswer = String(calculate(a, b, operation));
   return { questionString: `${a} ${operation} ${b}`, correctAnswer };
 };
 
 export default () => ({
-  generateQuestion,
+  generateGameRound,
   gameplayMsg,
-  isCorrectInput,
 });
