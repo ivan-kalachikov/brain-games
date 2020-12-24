@@ -2,7 +2,7 @@
 
 name: eslint
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -19,7 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
+
       - name: Use Node.js ${{ matrix.node-version }}
         # Configures the node version used on GitHub-hosted runners
         # https://github.com/actions/setup-node
@@ -34,7 +34,7 @@ jobs:
         # Add environment variables
         env:
           CI: true
-      
+
       # Runs a single command using the runners shell
       - name: Run Eslitnitng on the project files
-        run: make init
+        run: make lint
