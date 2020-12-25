@@ -13,10 +13,9 @@ const runGame = (gameLogic) => {
 
   for (let i = 0; i < MAX_STEPS; i += 1) {
     const { questionString, correctAnswer } = generateGameRound();
-    const answer = readlineSync.question(`Question: ${questionString} `);
-    // check an user input is a number, convert it to Number in this case,
-    // return String in another case;
-    console.log(`Your answer: ${answer}`);
+    console.log(`Question: ${questionString}`);
+
+    const answer = readlineSync.question('Your answer: ');
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
