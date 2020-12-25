@@ -4,24 +4,24 @@
 ![Linter Status](https://github.com/Ivankalachikov/frontend-project-lvl1/workflows/eslint/badge.svg)
 
 **brain-even** The record how to installation, run, win and lose:
-[![asciicast](https://asciinema.org/a/fK8PPXxSyPLY0INZd000Cu9tr.svg)](https://asciinema.org/a/fK8PPXxSyPLY0INZd000Cu9tr)
+[![asciicast](https://asciinema.org/a/Upz6Q45RQ00vux5EK5t8CUAU2.svg)](https://asciinema.org/a/Upz6Q45RQ00vux5EK5t8CUAU2)
 
 ---
 
 **brain-calc** The record how to run, win and lose:
-[![asciicast](https://asciinema.org/a/ex6plx460eN7ebdbqYuMGhHcA.svg)](https://asciinema.org/a/ex6plx460eN7ebdbqYuMGhHcA)
+[![asciicast](https://asciinema.org/a/C0ZXngCTXh0KB9QVW7jx3jxYO.svg)](https://asciinema.org/a/C0ZXngCTXh0KB9QVW7jx3jxYO)
 
 ---
 
 **brain-gcd** The record how to run, win and lose:
-[![asciicast](https://asciinema.org/a/mD9nswCrEUVf9f6tCpyNoyhX4.svg)](https://asciinema.org/a/mD9nswCrEUVf9f6tCpyNoyhX4)
+[![asciicast](https://asciinema.org/a/XX8Hri9pLdb8UqwlETFeZZpZR.svg)](https://asciinema.org/a/XX8Hri9pLdb8UqwlETFeZZpZR)
 
 ---
 
 **brain-progression** The record how to run, win and lose:
-[![asciicast](https://asciinema.org/a/XY9CrWNkYS2P1MDwDWRG7U5Zr.svg)](https://asciinema.org/a/XY9CrWNkYS2P1MDwDWRG7U5Zr)
+[![asciicast](https://asciinema.org/a/dokzOQXTc7q8dCpCZ505KrhbE.svg)](https://asciinema.org/a/dokzOQXTc7q8dCpCZ505KrhbE)
 
 ---
 
 **brain-prime** The record how to run, win and lose:
-[![asciicast](https://asciinema.org/a/jp1zXF3k6NOql1rvUiR0115nl.svg)](https://asciinema.org/a/jp1zXF3k6NOql1rvUiR0115nl)
+[![asciicast](https://asciinema.org/a/DZmUqOf3aUuohZOFrtMXPm3WE.svg)](https://asciinema.org/a/DZmUqOf3aUuohZOFrtMXPm3WE)
